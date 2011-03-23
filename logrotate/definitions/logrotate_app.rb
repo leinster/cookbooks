@@ -22,6 +22,7 @@ define :logrotate_app, :enable => true do
 
     if params[:enable]
       template "/etc/logrotate.d/#{params[:name]}" do
+        cookbook "logrotate"
         source "logrotate.erb"
         mode 0440
         owner "root"
